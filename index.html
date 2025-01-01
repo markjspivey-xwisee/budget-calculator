@@ -2,13 +2,63 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://markjspivey-xwisee.github.io/budget-calculator/docs/">
-    <script type="text/javascript">
-        window.location.href = "https://markjspivey-xwisee.github.io/budget-calculator/docs/"
-    </script>
     <title>Budget Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    If you are not redirected automatically, follow this <a href='https://markjspivey-xwisee.github.io/budget-calculator/docs/'>link</a>.
+    <div class="container">
+        <h1>Budget Calculator</h1>
+        
+        <div class="section">
+            <h2>Income</h2>
+            <div class="input-group">
+                <input type="text" id="income-desc" placeholder="Description">
+                <input type="number" id="income-amount" placeholder="Amount">
+                <button onclick="addIncome()">Add Income</button>
+            </div>
+            <table id="income-list">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="total">Total Income: <span id="total-income">$0.00</span></div>
+        </div>
+
+        <div class="section">
+            <h2>Expenses</h2>
+            <div class="input-group">
+                <input type="text" id="expense-desc" placeholder="Description">
+                <input type="number" id="expense-amount" placeholder="Amount">
+                <button onclick="addExpense()">Add Expense</button>
+            </div>
+            <table id="expense-list">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="total">Total Expenses: <span id="total-expenses">$0.00</span></div>
+        </div>
+
+        <div class="summary">
+            <h2>Summary</h2>
+            <div class="balance">Remaining Balance: <span id="remaining-balance">$0.00</span></div>
+        </div>
+
+        <div class="insights-section">
+            <h2>Financial Insights</h2>
+            <div id="insights"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
