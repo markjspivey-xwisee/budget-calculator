@@ -1,13 +1,35 @@
-// Default expenses data
+// Generate random amount between min and max
+function randomAmount(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+// Default expenses data with randomized amounts
 const defaultExpenses = [
-    { description: "Erie Insurance", amount: 100.67 },
-    { description: "Erie Insurance", amount: 13.67 },
-    { description: "T-mobile Phone", amount: 130.00 },
-    { description: "Electricity", amount: 170.00 },
-    { description: "Town of Cary", amount: 75.00 },
-    { description: "Dominion Gas", amount: 55.00 },
-    { description: "Mortgage", amount: 1184.00 }
+    { description: "Netflix & Gaming", amount: randomAmount(15, 50) },
+    { description: "Apartment Rent", amount: randomAmount(800, 2000) },
+    { description: "Pet Supplies", amount: randomAmount(30, 100) },
+    { description: "Internet & Cable", amount: randomAmount(60, 120) },
+    { description: "Phone Bill", amount: randomAmount(40, 90) },
+    { description: "Electricity", amount: randomAmount(80, 200) },
+    { description: "Groceries", amount: randomAmount(300, 600) },
+    { description: "Restaurant Dining", amount: randomAmount(100, 400) },
+    { description: "Gym & Fitness", amount: randomAmount(30, 80) },
+    { description: "Car Insurance", amount: randomAmount(80, 200) },
+    { description: "Gas & Fuel", amount: randomAmount(100, 300) },
+    { description: "Shopping & Hobbies", amount: randomAmount(50, 200) }
 ];
+
+// Sample income data with randomized amounts
+const sampleIncome = [
+    { description: "Software Developer Job", amount: randomAmount(4000, 8000) },
+    { description: "Freelance Work", amount: randomAmount(500, 2000) },
+    { description: "YouTube Channel", amount: randomAmount(100, 1000) }
+];
+
+// Note: The financial insights system uses predefined thresholds and ratios
+// to generate recommendations. It's currently template-based but could be
+// enhanced with AI integration using services like OpenAI's API to provide
+// more personalized insights based on spending patterns and financial goals.
 
 // Initialize the app
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,6 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
     defaultExpenses.forEach(expense => {
         addExpenseToTable(expense.description, expense.amount);
     });
+    
+    // Load sample income
+    sampleIncome.forEach(income => {
+        addIncomeToTable(income.description, income.amount);
+    });
+    
     updateTotals();
 });
 
