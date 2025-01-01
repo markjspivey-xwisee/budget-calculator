@@ -19,9 +19,19 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
+      - name: Copy files to docs
+        run: |
+          mkdir -p docs
+          cp index.html docs/
+          cp styles.css docs/
+          cp script.js docs/
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .
+          folder: docs
           branch: gh-pages
           clean: true
+          clean-exclude: |
+            .github
+            .gitignore
